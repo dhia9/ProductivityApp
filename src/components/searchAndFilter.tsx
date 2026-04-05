@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 
 
 
-export default function SearchAndFilter({ handleFilter ,search, setSearch}: any) {
+export default function SearchAndFilter({ handleFilter ,search, setSearch, filteredTodos}: any) {
 
   return (
     <Box sx={{ width: 500, maxWidth: '100%', margin: 'auto', marginTop: 2 }}>
@@ -13,6 +13,7 @@ export default function SearchAndFilter({ handleFilter ,search, setSearch}: any)
         setSearch(value);
         handleFilter(value);
       }} />
+      {search &&<h3 style={{marginLeft:"15%"}}>{filteredTodos.length} Todos found including "{search}"</h3>}
 
     </Box>)
 }

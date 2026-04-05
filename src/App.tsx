@@ -31,7 +31,7 @@ function App() {
     <ButtonAppBar/>
     <DescribeTodos remainingEnabled={remainingEnabled} setRemainingEnabled={setRemainingEnabled} checkedTodos={checkedTodos}  />
     <CheckToggle setCheckedTodos={setCheckedTodos} />
-    <SearchAndFilter  handleFilter={handleFilter} search={search} setSearch={setSearch} />
+    <SearchAndFilter  handleFilter={handleFilter} search={search} setSearch={setSearch} filteredTodos={filteredTodos} />
     <AddTodo checkedTodos={checkedTodos} setCheckedTodos={setCheckedTodos} listTodos={search ? filteredTodos : listTodos} setListTodos={setListTodos} />
      </>
      
