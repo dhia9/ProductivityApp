@@ -6,12 +6,12 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import '../componentStyle/AddTodo.css';
-export default function AddTodo() {
+
+export default function AddTodo({checkedTodos, setCheckedTodos}:any){
   const [todo, setTodo] = useState('');
   const [listTodos, setListTodos] = useState<string[]>([]);
-  const [checkedTodos, setCheckedTodos] = useState<boolean[]>([]);
   const deleteTodo = (index: number) => {
-    setListTodos((prevListTodos: Array<string>) => prevListTodos.filter((value:string, i) => i !== index));
+    setListTodos((prevListTodos: Array<string>) => prevListTodos.filter((_, i) => i !== index));
     setCheckedTodos((prevCheckedTodos: boolean[]) => prevCheckedTodos.filter((_, i) => i !== index));
   }
   return (<>
@@ -21,7 +21,7 @@ export default function AddTodo() {
         if (todo) {
           setListTodos((prevListTodos: Array<string>) => [...prevListTodos, todo]);
           setTodo('');
-          setCheckedTodos(prev => [...prev, false]);
+          setCheckedTodos((prevCheckedTodos: boolean[]) => [...prevCheckedTodos, false]);
         }
       }} className='BoxButton'><AddIcon /></button>
 
