@@ -1,11 +1,42 @@
-
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
-// import InputAdornment from '@mui/material/InputAdornment';
+import { useState } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import '../componentStyle/AddTodo.css';
 export default function AddTodo() {
-  return (
-    <Box sx={{ display: 'flex', width: 500, maxWidth: '100%',margin:'auto',marginTop:2 }}>
-      <TextField  fullWidth label="add a Todo" id="fullWidth"/>
-      <AddIcon sx={{ margin:'auto' , marginLeft: 2 }} onClick={() => console.log('Add clicked')}/>
-    </Box>);}
+  const [todo, setTodo] = useState('');
+  const [listTodos, setListTodos] = useState<string[]>([]);
+  const [checkedTodos, setCheckedTodos] = useState<boolean[]>([]);
+  const deleteTodo = (index: number) => {
+    setListTodos((prevListTodos: Array<string>) => prevListTodos.filter((value:string, i) => i !== index));
+    setCheckedTodos((prevCheckedTodos: boolean[]) => prevCheckedTodos.filter((_, i) => i !== index));
+  }
+  return (<>
+    <Box sx={{ display: 'flex', width: 500, maxWidth: '100%', margin: 'auto', marginTop: 2, gap: 1 }}>
+      <TextField fullWidth label="add a Todo" id="fullWidth" value={todo} onChange={(e) => setTodo(e.target.value)} />
+      <button onClick={() => {
+        if (todo) {
+          setListTodos((prevListTodos: Array<string>) => [...prevListTodos, todo]);
+          setTodo('');
+          setCheckedTodos(prev => [...prev, false]);
+        }
+      }} className='BoxButton'><AddIcon /></button>
+
+    </Box>
+    <ul >
+      {listTodos.map((item, index) =>{
+      return (<li  key={index} >
+      <FormControlLabel control={<Checkbox checked={checkedTodos[index]} onClick={()=>{setCheckedTodos((prevCheckedTodos: boolean[]) => {
+            const newCheckedTodos = [...prevCheckedTodos];
+            newCheckedTodos[index] = !newCheckedTodos[index];
+            return newCheckedTodos;
+          })}} /> } label={item} key={index} />
+      <button onClick={() => deleteTodo(index)}><DeleteIcon /></button>
+    </li>
+
+    )})}</ul>
+  </>);
+}
