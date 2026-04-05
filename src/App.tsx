@@ -16,12 +16,13 @@ import AddTodo from './components/AddTodo';
 function App() {
   const [remainingEnabled, setRemainingEnabled] = useState(false);
   const [checkedTodos, setCheckedTodos] = useState<boolean[]>([]);
+  const [listTodos, setListTodos] = useState<string[]>([]);
   return (
     <>
     <ButtonAppBar/>
-    <DescribeTodos remainingEnabled={remainingEnabled} setRemainingEnabled={setRemainingEnabled} />
+    <DescribeTodos remainingEnabled={remainingEnabled} setRemainingEnabled={setRemainingEnabled} checkedTodos={checkedTodos}  />
     <SearchTodos setCheckedTodos={setCheckedTodos} />
-    <AddTodo checkedTodos={checkedTodos} setCheckedTodos={setCheckedTodos} />
+    <AddTodo checkedTodos={checkedTodos} setCheckedTodos={setCheckedTodos} listTodos={listTodos} setListTodos={setListTodos} />
      </>
      
     
