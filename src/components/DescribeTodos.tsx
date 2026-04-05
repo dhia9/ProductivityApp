@@ -8,7 +8,8 @@ export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, c
     <Button variant="contained" disableElevation sx={{ margin: 'auto', display: 'block', marginTop: 2 }} onClick={() => setRemainingEnabled((prevRemainingEnabled: boolean) => !prevRemainingEnabled)}>
       Show the todoList description
     </Button>
-    {remainingEnabled && <h1 style={{ textAlign: 'center' }}>You have {checkedTodos.length} todos in total <br /> {countChecked} completed <DoneIcon color="success"/> - {checkedTodos.length - countChecked} remaining <WarningOutlinedIcon style={{color:"red"}}/></h1>}</>
+    {remainingEnabled && <h2 style={{ textAlign: 'center' }}>You have {checkedTodos.length} todos in total <br /> {countChecked} completed <DoneIcon color="success"/> - {checkedTodos.length - countChecked} remaining <WarningOutlinedIcon style={{color:"red"}}/></h2>}</>
+    
 
   );
 }
