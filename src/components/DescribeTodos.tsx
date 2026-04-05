@@ -9,6 +9,7 @@ export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, c
       Show the todoList description
     </Button>
     {remainingEnabled && <h2 style={{ textAlign: 'center' }}>You have {checkedTodos.length} todos in total <br /> {countChecked} completed <DoneIcon color="success"/> - {checkedTodos.length - countChecked} remaining <WarningOutlinedIcon style={{color:"red"}}/></h2>}</>
+    
 
   );
 }
