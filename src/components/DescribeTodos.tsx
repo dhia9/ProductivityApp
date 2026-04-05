@@ -6,7 +6,7 @@ export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, c
   const countChecked = checkedTodos.reduce((acc: number, value: boolean) => acc + (value ? 1 : 0), 0);
   return (<>
     <Button variant="contained" disableElevation sx={{ margin: 'auto', display: 'block', marginTop: 2 }} onClick={() => setRemainingEnabled((prevRemainingEnabled: boolean) => !prevRemainingEnabled)}>
-      Show todos description
+      Show the todoList description
     </Button>
     {remainingEnabled && <h1 style={{ textAlign: 'center' }}>You have {checkedTodos.length} todos in total <br /> {countChecked} completed <DoneIcon color="success"/> - {checkedTodos.length - countChecked} remaining <WarningOutlinedIcon style={{color:"red"}}/></h1>}</>
 
