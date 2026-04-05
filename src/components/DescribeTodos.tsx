@@ -1,10 +1,14 @@
 import Button from '@mui/material/Button';
-export default function DescribeTodos({setRemainingEnabled,remainingEnabled}:any) {
+import DoneIcon from '@mui/icons-material/Done';
+import WarningOutlinedIcon from '@mui/icons-material/WarningOutlined';
+export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, checkedTodos }: any) {
+
+  const countChecked = checkedTodos.reduce((acc: number, value: boolean) => acc + (value ? 1 : 0), 0);
   return (<>
-    <Button variant="contained" disableElevation sx={{ margin: 'auto', display: 'block', marginTop: 2 }} onClick={()=>setRemainingEnabled((prevRemainingEnabled:boolean)=>!prevRemainingEnabled)}>
+    <Button variant="contained" disableElevation sx={{ margin: 'auto', display: 'block', marginTop: 2 }} onClick={() => setRemainingEnabled((prevRemainingEnabled: boolean) => !prevRemainingEnabled)}>
       Show remaining
     </Button>
-    {remainingEnabled &&<h1 style={{textAlign:'center'}}>You have 0 todos in total <br/> 0 completed - 0 remaining</h1>}</>
-    
+    {remainingEnabled && <h1 style={{ textAlign: 'center' }}>You have {checkedTodos.length} todos in total <br /> {countChecked} completed <DoneIcon color="success"/> - {checkedTodos.length - countChecked} remaining <WarningOutlinedIcon style={{color:"red"}}/></h1>}</>
+
   );
 }
