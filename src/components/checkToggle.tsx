@@ -15,5 +15,9 @@ export default function CheckToggle({ setCheckedTodos, setListTodos, checkedTodo
       setApplyChecked((prevApplyChecked: boolean) => !prevApplyChecked);
 
     }}>{applychecked ? 'uncheck all' : 'check all'}</Button>
-    <Button variant="outlined" sx={{ marginTop: 2, marginLeft: 3 }} onClick={() => setListTodos((prevListTodos: string[]) => prevListTodos.filter((_, i) => !checkedTodos[i]))}> delete the Selected Todos</Button></div>)
+    <Button variant="outlined" sx={{ marginTop: 2, marginLeft: 3 }} onClick={() => setListTodos((prevListTodos: string[]) => {
+      const filteredTodos = prevListTodos.filter((_, i) => !checkedTodos[i]);
+      setCheckedTodos(checkedTodos.filter((value:boolean, i:number) => !checkedTodos[i]));
+      return filteredTodos;
+    })}> delete the Selected Todos</Button></div>)
 }
