@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import AddTodo from '../components/AddTodo';
 import Paper from '@mui/material/Paper';
 import "../PageStyle/ProfilePageStyle.css";
-function Home() {
+function Home({profile, setProfile, user, setUser}: {profile: Record<string, any> | null, setProfile: (value: Record<string, any> | null) => void, user: string, setUser: (value: string) => void}) {
   const [remainingEnabled, setRemainingEnabled] = useState(false);
   const [checkedTodos, setCheckedTodos] = useState<boolean[]>([]);
   const [listTodos, setListTodos] = useState<string[]>([]);
@@ -23,7 +23,7 @@ function Home() {
 
   return (
     <div className="bg-gradient-to-r from-indigo-800 to-blue-900 min-h-screen">
-      <ButtonAppBar />
+      <ButtonAppBar profile={profile} setProfile={setProfile} user={user} setUser={setUser}/>
       <Box
   sx={{
     minHeight: '100vh',

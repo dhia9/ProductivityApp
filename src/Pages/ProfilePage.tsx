@@ -1,10 +1,7 @@
 import "../PageStyle/ProfilePageStyle.css";
-import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-export default function ProfilePage() {
-    const location = useLocation();
-    const { profile } = location.state || {};
+export default function ProfilePage({ profile }: { profile: Record<string, any> | null }) {
     const [skills, setSkills] = useState<string[]>([]); // State for fetched skills
 
     useEffect(() => {
@@ -63,23 +60,23 @@ export default function ProfilePage() {
                             }
                         </div>
                         <button className="mt-4 bg-indigo-800 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300" style={{ display: "flex", margin: "auto", marginTop: "5px" }}>
-                            <a href="/ProductivityApp/" className="text-white no-underline">
+                            <Link to="/" className="text-white no-underline">
                                 Back to the TodoList
-                            </a>
+                            </Link>
                         </button>
                     </div>
                 </div>
             </div>
         </div> : <div className="bg-gradient-to-r from-indigo-800 to-blue-900 min-h-screen flex flex-col items-center justify-center p-4 gap-4">
-    <p className="text-white text-lg">No profile found</p>
-    
-    <button className="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
-        <Link to="/" className="text-white no-underline">
-            Back to the TodoList
-        </Link>
-    </button>
-    
-</div>}
+            <p className="text-white text-lg">No profile found</p>
+
+            <button className="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
+                <Link to="/" className="text-white no-underline">
+                    Back to the TodoList
+                </Link>
+            </button>
+
+        </div>}
     </>
     );
 }

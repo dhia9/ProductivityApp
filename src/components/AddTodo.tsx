@@ -7,7 +7,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import '../componentStyle/AddTodo.css';
 
-export default function AddTodo({ checkedTodos, setCheckedTodos, listTodos, setListTodos }: any) {
+export default function AddTodo({ checkedTodos, setCheckedTodos, listTodos, setListTodos }: { checkedTodos: boolean[], setCheckedTodos: any, listTodos: string[], setListTodos: any }) {
   const [todo, setTodo] = useState('');
   const deleteTodo = (index: number) => {
     setListTodos((prevListTodos: Array<string>) => prevListTodos.filter((_, i) => i !== index));

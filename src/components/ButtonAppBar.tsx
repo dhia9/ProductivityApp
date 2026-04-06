@@ -6,8 +6,7 @@ import Typography from '@mui/material/Typography';
 import LinearIndeterminate from './LoadingHandler';
 import HandleLogin from './handleLogin';
 
-export default function ButtonAppBar() {
-  const [user, setUser] = useState("");
+export default function ButtonAppBar({profile, setProfile, user, setUser}: {profile: Record<string, any> | null, setProfile: (value: Record<string, any> | null) => void, user: string, setUser: (value: string) => void}) {
   const [loading, setLoading] = useState(false);
   return (<>
     <Box sx={{ flexGrow: 1 }}>
@@ -17,7 +16,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ margin: 'auto' }}>
             Todo List
           </Typography>
-          <HandleLogin setLoading={setLoading} user={user} setUser={setUser} />
+          <HandleLogin setLoading={setLoading} user={user} setUser={setUser} profile={profile} setProfile={setProfile} />
         </Toolbar>
       </AppBar>
     </Box>

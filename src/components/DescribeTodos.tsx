@@ -1,10 +1,9 @@
 import Button from '@mui/material/Button';
 import DoneIcon from '@mui/icons-material/Done';
 import WarningOutlinedIcon from '@mui/icons-material/WarningOutlined';
-export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, checkedTodos, buttonSx }: any) {
+export default function DescribeTodos({ setRemainingEnabled, remainingEnabled, checkedTodos, buttonSx }: { setRemainingEnabled: any, remainingEnabled: boolean, checkedTodos: boolean[], buttonSx: Record<string, any> }) {
   const countChecked = checkedTodos.reduce((acc: number, value: boolean) => acc + (value ? 1 : 0), 0);
     return (<>
-    {/* margin: 'auto', display: 'block', marginTop: 2 */}
       <Button variant="contained" disableElevation sx={{...buttonSx,}} onClick={() => setRemainingEnabled((prevRemainingEnabled: boolean) => !prevRemainingEnabled)}>
         Show the todoList description
       </Button>

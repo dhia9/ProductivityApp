@@ -1,10 +1,8 @@
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 
-export default function CheckToggle({ setCheckedTodos, setListTodos, checkedTodos, buttonSx }: any) {
+export default function CheckToggle({ setCheckedTodos, setListTodos, checkedTodos, buttonSx }: { setCheckedTodos: any, setListTodos: any, checkedTodos: boolean[], buttonSx: Record<string, any> }) {
   const [applychecked, setApplyChecked] = useState(false);
-  // display: 'flex', flexDirection: 'row', justifyContent: 'center' 
-  // marginTop: 2, marginLeft: 5 
   return (<div style={{}}>
     <Button variant="outlined" sx={{...buttonSx,marginRight: 0.5}} onClick={() => {
       if (!applychecked) {
@@ -22,5 +20,4 @@ export default function CheckToggle({ setCheckedTodos, setListTodos, checkedTodo
       setCheckedTodos(checkedTodos.filter((value: boolean) => !value));
       return filteredTodos;
     })}> delete the Selected Todos</Button></div>)
-  // marginTop: 2, marginLeft: 3 
 }

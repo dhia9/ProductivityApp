@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# ProductivityApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Stack
 
-Currently, two official plugins are available:
+- React + TypeScript
+- Vite
+- HTML / CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm create vite@latest hiring-test -- --template react-ts
+cd hiring-test
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Push to a new GitHub repo and work on a dedicated branch:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git checkout -b feature/todo-app
 ```
+
+---
+
+## Features to build
+
+### 1 — GitHub user profile
+
+Fetch your GitHub info from `https://api.github.com/users/{yourusername}` and display at the top of the screen:
+
+- Avatar
+- Name
+- Any other info you find relevant
+
+States to handle:
+
+- Loading state while the request is in progress
+- Error message if the fetch fails
+
+---
+
+### 2 — Todo list
+
+- Add a new todo (input + button)
+- Display all todos in a list
+- Mark a todo as completed (checkbox or button)
+- Delete a todo
+- Show total number of todos and number completed
+
+---
+
+### 3 — Filter (bonus)
+
+- Search input that filters todos by name (case-insensitive)
+- Display "No items found" when the search has no results
+- Display the number of items found
+
+---
+
+## Constraints
+
+- No AI assistance of any kind — violations cancel the process
+- Commit regularly
+- File architecture is free — extract components as you see fit
+- Code quality and readability matter
+
+---
+
+## Delivery
+
+Send a GitHub link with your branch once done. Time limit: **2 hours**.

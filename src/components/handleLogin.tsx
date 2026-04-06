@@ -8,7 +8,6 @@ import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
-import { useState } from 'react';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,10 +17,9 @@ import { useNavigate } from 'react-router-dom';
 
 const settings = ['Profile'];
 
-export default function HandleLogin({ setLoading, user, setUser }: any) {
+export default function HandleLogin({ setLoading, user, setUser, profile, setProfile }: { setLoading: (value: boolean) => void, user: string, setUser: (value:string) => void, profile: Record<string, any> | null, setProfile: (value: Record<string, any> | null) => void }) {
     const [open, setOpen] = React.useState(false);
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-    const [profile, setProfile] = useState<any>(null);
     const navigate = useNavigate();
     const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElUser(event.currentTarget);
