@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/HomePage';
 import ProfilePage from './Pages/ProfilePage';
 function App() {
@@ -6,8 +6,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/ProductivityApp/" element={<Home />} />
-        <Route path="/ProductivityApp/profile" element={<ProfilePage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
 
