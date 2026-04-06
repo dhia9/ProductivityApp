@@ -128,9 +128,9 @@ export default function HandleLogin({ setLoading, user, setUser }: any) {
                                 {settings.map((setting) => (
                                     <MenuItem key={setting} onClick={() => {
                                         handleCloseUserMenu();
-                                        navigate('/ProductivityApp/profile', { state: { profile } });
+                                        navigate('/profile', { state: { profile } });
                                     }}
-                                        component="a" href="/ProductivityApp/profile">
+                                        component="a" href="/profile">
                                         <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
                                     </MenuItem>
                                 ))}

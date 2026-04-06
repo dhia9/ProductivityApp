@@ -74,7 +74,7 @@ export default function ProfilePage() {
     <p className="text-white text-lg">No profile found</p>
     
     <button className="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
-        <a href="/ProductivityApp/" className="text-white no-underline">
+        <a href="/" className="text-white no-underline">
             Back to the TodoList
         </a>
     </button>
