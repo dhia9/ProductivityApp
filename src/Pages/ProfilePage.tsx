@@ -1,7 +1,7 @@
 import "../PageStyle/ProfilePageStyle.css";
 import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';
 export default function ProfilePage() {
     const location = useLocation();
     const { profile } = location.state || {};
@@ -74,9 +74,9 @@ export default function ProfilePage() {
     <p className="text-white text-lg">No profile found</p>
     
     <button className="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-blue-900 transition-colors duration-300">
-        <a href="/" className="text-white no-underline">
+        <Link to="/" className="text-white no-underline">
             Back to the TodoList
-        </a>
+        </Link>
     </button>
     
 </div>}

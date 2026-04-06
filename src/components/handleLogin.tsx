@@ -16,8 +16,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import { useNavigate } from 'react-router-dom';
 
-// Inside HandleLogin
-
 const settings = ['Profile'];
 
 export default function HandleLogin({ setLoading, user, setUser }: any) {
@@ -130,7 +128,7 @@ export default function HandleLogin({ setLoading, user, setUser }: any) {
                                         handleCloseUserMenu();
                                         navigate('/profile', { state: { profile } });
                                     }}
-                                        component="a" href="/profile">
+                                    >
                                         <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
                                     </MenuItem>
                                 ))}
