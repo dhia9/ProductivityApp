@@ -25,6 +25,14 @@ export default function AddTodo({ checkedTodos, setCheckedTodos, listTodos, setL
       }} className='BoxButton'><AddIcon /></button>
 
     </Box>
+    <Box  sx={{
+    width: '450px',
+    maxHeight: 300,
+    overflowY: 'auto',
+    margin: '0 auto',
+    marginTop: 2,
+    marginRight:2
+  }}>
     <ul >
       {listTodos.map((item: string, index: number) => {
         return (<li key={index} >
@@ -39,6 +47,6 @@ export default function AddTodo({ checkedTodos, setCheckedTodos, listTodos, setL
         </li>
 
         )
-      })}</ul>
+      })}</ul></Box>
   </>);
 }

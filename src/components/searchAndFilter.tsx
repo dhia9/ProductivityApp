@@ -9,7 +9,7 @@ export default function SearchAndFilter({ handleFilter, search, setSearch, filte
         setSearch(value);
         handleFilter(value);
       }} />
-      {search && <h3 style={{ marginLeft: "15%" }}>{filteredTodos.length} Todos found including "{search}"</h3>}
+      {search && <h3 style={{marginTop: 5, marginLeft: "26%" }}>{filteredTodos.length} Todos found including "{search}"</h3>}
 
     </Box>)
 }
