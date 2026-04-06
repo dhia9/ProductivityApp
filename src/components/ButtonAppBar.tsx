@@ -1,14 +1,17 @@
-
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import LinearIndeterminate from './LoadingHandler';
+import HandleLogin from './handleLogin';
 
 export default function ButtonAppBar() {
-  return (
+  const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
+  return (<>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -24,9 +27,16 @@ export default function ButtonAppBar() {
           <Typography variant="h6" component="div" sx={{ margin: 'auto' }}>
             Todo List
           </Typography>
-          <Button color="inherit">Login</Button>
+          <HandleLogin setLoading={setLoading} user={user} setUser={setUser} />
         </Toolbar>
       </AppBar>
     </Box>
+    {loading && <LinearIndeterminate />}
+    {user === "User not found . Please type a correct one ." && <Typography variant="h6" color="error" align="center" sx={{ mt: 2 }}>
+      {user}
+    </Typography>}
+
+
+  </>
   );
 }
