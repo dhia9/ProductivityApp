@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ButtonAppBar from '../components/ButtonAppBar';
+import ButtonAppBar from '../components/HandleLoadErrorNavbarComponents/ButtonAppBar';
 import DescribeTodos from '../components/DescribeTodos';
 import CheckToggle from '../components/checkToggle';
 import SearchAndFilter from '../components/searchAndFilter';
@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import AddTodo from '../components/AddTodo';
 import Paper from '@mui/material/Paper';
 import "../PageStyle/ProfilePageStyle.css";
+import HandleLoadErrorNavbar from '../components/HandleLoadErrorNavbar';
 function Home({profile, setProfile, user, setUser}: {profile: Record<string, any> | null, setProfile: (value: Record<string, any> | null) => void, user: string, setUser: (value: string) => void}) {
   const [remainingEnabled, setRemainingEnabled] = useState(false);
   const [checkedTodos, setCheckedTodos] = useState<boolean[]>([]);
@@ -23,7 +24,7 @@ function Home({profile, setProfile, user, setUser}: {profile: Record<string, any
 
   return (
     <div className="bg-gradient-to-r from-indigo-800 to-blue-900 min-h-screen">
-      <ButtonAppBar profile={profile} setProfile={setProfile} user={user} setUser={setUser}/>
+      <HandleLoadErrorNavbar profile={profile} setProfile={setProfile} user={user} setUser={setUser} />
       <Box
   sx={{
     minHeight: '100vh',
