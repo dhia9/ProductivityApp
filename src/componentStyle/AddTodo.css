@@ -35,3 +35,15 @@ li button {
 li button:hover {
     border-color: black;
 }
+.Addicon:hover {
+    padding:"1px";
+    cursor: pointer;color: blue;
+}
+button:focus {
+  outline: none;
+  cursor: pointer;color: blue;
+}
+.deleteButton:hover {
+    border: none;
+    cursor: pointer;
+}
