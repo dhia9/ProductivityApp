@@ -59,16 +59,3 @@ States to handle:
 - Display the number of items found
 
 ---
-
-## Constraints
-
-- No AI assistance of any kind — violations cancel the process
-- Commit regularly
-- File architecture is free — extract components as you see fit
-- Code quality and readability matter
-
----
-
-## Delivery
-
-Send a GitHub link with your branch once done. Time limit: **2 hours**.
